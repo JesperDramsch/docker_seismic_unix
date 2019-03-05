@@ -1,9 +1,9 @@
-FROM phusion/baseimage:0.9.17
-MAINTAINER Marius Storm-Olsen <mstormo@gmail.no>
+FROM phusion/baseimage:0.10.2
+MAINTAINER Jesper Dramsch <jesper@dramsch.net>
 
-LABEL Description="Seismic Unix on a proper Ubuntu 14.04 LTS base"
+LABEL Description="Seismic Unix on a proper Ubuntu 16.04 LTS base"
 
-# Use /data as the persistant storage for seismic
+# Use /data as the persistent storage
 VOLUME ["/data"]
 
 # Download Seismic Unix, build it, and clean up tools and build artifacts
@@ -12,10 +12,8 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     libx11-dev \
     libxt6 libxt-dev \
-    && curl -o /root/cwp_su_all_44R0.tgz -SL "ftp://ftp.cwp.mines.edu/pub/cwpcodes/cwp_su_all_44R0.tgz" \
-    && mkdir /root/cwp \
-    && tar zxf /root/cwp_su_all_44R0.tgz -C /root/cwp \
-    && rm /root/cwp_su_all_44R0.tgz \
+    && git clone "https://github.com/JohnWStockwellJr/SeisUnix.git" \
+    && mv SeisUnix /root/cwp \
     && /bin/bash -c \
        'echo exit 0 > /root/cwp/src/license.sh \
        && echo exit 0 > /root/cwp/src/mailhome.sh \
