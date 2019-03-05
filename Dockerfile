@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     libx11-dev \
     libxt6 libxt-dev \
+    git \
     && git clone "https://github.com/JohnWStockwellJr/SeisUnix.git" \
     && mv SeisUnix /root/cwp \
     && /bin/bash -c \
