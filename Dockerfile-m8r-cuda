@@ -46,7 +46,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       git \
       emacs25 \
       openmpi-bin \
-      cuda-command-line-tools-9-0 \
       wget \
       && git clone https://github.com/ahay/src ${RSFROOT}/src \
       && cd ${RSFROOT}/src \
