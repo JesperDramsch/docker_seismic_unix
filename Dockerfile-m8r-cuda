@@ -21,6 +21,7 @@ ENV RSFMEMSIZE	100
 ENV RSFSRC	undefined
 ENV TMPDATAPATH	$DATAPATH
 ENV LATEX2HTML	undefined
+ENV DATAPATH /data
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
       ca-certificates \
