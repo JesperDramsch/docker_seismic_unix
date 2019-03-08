@@ -48,11 +48,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       openmpi-bin \
       wget \
       && git clone https://github.com/ahay/src ${RSFROOT}/src \
-      && cd ${RSFROOT}/src \
       && ./configure API=c++,fortran-90 --prefix=${RSFROOT} \
       && make; make install && make clean \
       && rm -rf ${RSFROOT}/src \
       && rm -rf /var/lib/apt/lists \
       && apt-get autoremove -y \
       && apt-get autoclean -y \
-      && echo "source &{RSFROOT}/share/madagascar/etc/env.sh" >> $HOME/.bash_profile
+      && echo "source ${RSFROOT}/share/madagascar/etc/env.sh" >> $HOME/.bash_profile
